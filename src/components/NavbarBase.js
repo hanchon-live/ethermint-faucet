@@ -3,9 +3,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 
 import Image from "react-bootstrap/Image";
-import { ButtonPrimary } from "./generics/Buttons/ButtonPrimary";
 import ethermintLogo from "../img/ethermintLogo.png";
 import styled from "styled-components";
+import SignupButton from "./auth/SignupButton";
+import AuthenticationButton from "./auth/AuthenticationButton";
 
 const StyledNav = styled(Nav)`
      {
@@ -46,7 +47,7 @@ export const NavbarBase = () => {
                 </StyledBrandText>
                 <StyledCollapse id="ethermint-nav" className="justify-content-end">
                     <StyledNav>
-                        <ButtonPrimary text="Login" />
+                        <AuthenticationButton />
                     </StyledNav>
                 </StyledCollapse>
             </Container>

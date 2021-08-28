@@ -5,6 +5,7 @@ import Image from "react-bootstrap/Image";
 import ethermintLogo from "../img/ethermintLogo.png";
 import { ButtonPrimaryOutline } from "./generics/Buttons/ButtonPrimaryOutline";
 import { useSelector } from "react-redux";
+
 const StyledContainer = styled.div`
      {
         align-items: center;

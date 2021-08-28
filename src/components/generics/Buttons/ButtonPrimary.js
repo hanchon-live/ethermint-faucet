@@ -1,7 +1,6 @@
 import Button from "react-bootstrap/Button";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 
 const style = `{
     background: rgb(61,107,153);
@@ -18,6 +17,7 @@ const style = `{
 
 const StyledButtonPrimary = styled(Button)`
      {
+        white-space: nowrap;
         svg {
             padding-left: 0.2rem;
         }
@@ -48,9 +48,9 @@ const StyledButtonPrimary = styled(Button)`
 export const ButtonPrimary = (props) => {
     return (
         <div>
-            <StyledButtonPrimary>
-                {props.text}
-                <FontAwesomeIcon icon={faSignInAlt} />
+            <StyledButtonPrimary onClick={props.onClick}>
+                <span>{props.text}</span>
+                <FontAwesomeIcon icon={props.icon} />
             </StyledButtonPrimary>
         </div>
     );
