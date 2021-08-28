@@ -42,5 +42,5 @@ const StyledButtonPrimaryOutline = styled(Button)`
 `;
 
 export const ButtonPrimaryOutline = (props) => {
-    return <StyledButtonPrimaryOutline>{props.text}</StyledButtonPrimaryOutline>;
+    return <StyledButtonPrimaryOutline onClick={props.onClick}>{props.text}</StyledButtonPrimaryOutline>;
 };

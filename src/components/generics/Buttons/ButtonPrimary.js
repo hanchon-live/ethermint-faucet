@@ -48,7 +48,6 @@ const StyledButtonPrimary = styled(Button)`
 export const ButtonPrimary = (props) => {
     return (
         <div>
-            <FontAwesomeIcon icon={["fab", "apple"]} />
             <StyledButtonPrimary>
                 {props.text}
                 <FontAwesomeIcon icon={faSignInAlt} />

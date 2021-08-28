@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import FormControl from "react-bootstrap/FormControl";
 
+import { setAddress } from "../../../redux/features/address";
+import { useDispatch } from "react-redux";
+
 const StyledFormControl = styled(FormControl)`
      {
         border-radius: 0.25rem;
@@ -15,5 +18,15 @@ const StyledFormControl = styled(FormControl)`
 `;
 
 export const Search = () => {
-    return <StyledFormControl type="text" placeholder="Ethermint address" aria-label="ethermint" />;
+    const dispatch = useDispatch();
+    return (
+        <StyledFormControl
+            type="email"
+            placeholder="Ethermint address"
+            aria-label="ethermint"
+            onChange={(event) => {
+                dispatch(setAddress(event.target.value));
+            }}
+        />
+    );
 };

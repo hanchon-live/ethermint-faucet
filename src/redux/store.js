@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import addressReducer from "./features/address";
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        address: addressReducer,
+    },
 });
