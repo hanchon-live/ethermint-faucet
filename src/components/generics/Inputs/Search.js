@@ -3,8 +3,7 @@ import FormControl from "react-bootstrap/FormControl";
 
 const StyledFormControl = styled(FormControl)`
      {
-        border-radius: 2rem;
-
+        border-radius: 0.25rem;
         padding-left: 2rem;
         &:focus {
             color: unset;
@@ -16,5 +15,5 @@ const StyledFormControl = styled(FormControl)`
 `;
 
 export const Search = () => {
-    return <StyledFormControl type="text" placeholder="Ethermint Address" aria-label="Username" aria-describedby="basic-addon1" />;
+    return <StyledFormControl type="text" placeholder="Ethermint address" aria-label="ethermint" />;
 };

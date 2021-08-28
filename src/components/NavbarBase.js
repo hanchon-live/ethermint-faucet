@@ -4,14 +4,34 @@ import Nav from "react-bootstrap/Nav";
 
 import Image from "react-bootstrap/Image";
 import { ButtonPrimary } from "./generics/Buttons/ButtonPrimary";
-import { ButtonPrimaryOutline } from "./generics/Buttons/ButtonPrimaryOutline";
-import ethermint from "../img/ethermint.png";
+import ethermintLogo from "../img/ethermintLogo.png";
 import styled from "styled-components";
 
 const StyledNav = styled(Nav)`
      {
+        flex-direction: row;
         button {
             margin-left: 1em;
+        }
+    }
+`;
+
+const StyledCollapse = styled(Navbar.Collapse)`
+     {
+        flex-basis: auto;
+        &.collapse:not(.show) {
+            display: flex;
+        }
+    }
+`;
+
+const StyledBrandText = styled(Navbar.Brand)`
+     {
+        align-items: center;
+        display: flex;
+        span {
+            padding-left: 0.2em;
+            color: white;
         }
     }
 `;
@@ -20,16 +40,15 @@ export const NavbarBase = () => {
     return (
         <Navbar expand="lg">
             <Container>
-                <Navbar.Brand href="#">
-                    <Image alt="Ethermint logo" src={ethermint} width="30" height="30" /> Ethermint
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="ethermint-nav" />
-                <Navbar.Collapse id="ethermint-nav" className="justify-content-end">
+                <StyledBrandText href="#">
+                    <Image alt="Ethermint logo" src={ethermintLogo} width="30" height="30" />
+                    <span> Ethermint</span>
+                </StyledBrandText>
+                <StyledCollapse id="ethermint-nav" className="justify-content-end">
                     <StyledNav>
-                        <ButtonPrimaryOutline text="Login" />
-                        <ButtonPrimary text="Request refunds" />
+                        <ButtonPrimary text="Login" />
                     </StyledNav>
-                </Navbar.Collapse>
+                </StyledCollapse>
             </Container>
         </Navbar>
     );

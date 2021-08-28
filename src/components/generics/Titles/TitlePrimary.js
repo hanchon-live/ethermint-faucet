@@ -8,5 +8,5 @@ const StyledTitle = styled.p`
 `;
 
 export const TitlePrimary = () => {
-    return <StyledTitle>Ethermint testnet faucet</StyledTitle>;
+    return <StyledTitle>Ethermint Testnet Faucet</StyledTitle>;
 };
