@@ -1,6 +1,6 @@
 # Ethermint Faucet Frontend
 
-Frontend that works with this [Faucet](https://github.com/hanchon/faucet).
+Frontend that works with this [Faucet](https://github.com/hanchon-live/ethermint-faucet-backend).
 
 ## Configuration
 
