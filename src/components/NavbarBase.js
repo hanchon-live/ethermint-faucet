@@ -5,7 +5,6 @@ import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
 import ethermintLogo from "../img/ethermintLogo.png";
 import styled from "styled-components";
-import SignupButton from "./auth/SignupButton";
 import AuthenticationButton from "./auth/AuthenticationButton";
 
 const StyledNav = styled(Nav)`
