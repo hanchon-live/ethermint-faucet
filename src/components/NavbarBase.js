@@ -40,7 +40,7 @@ export const NavbarBase = () => {
     return (
         <Navbar expand="lg">
             <Container>
-                <StyledBrandText href="#">
+                <StyledBrandText href="/">
                     <Image alt="Ethermint logo" src={ethermintLogo} width="30" height="30" />
                     <span> Ethermint</span>
                 </StyledBrandText>

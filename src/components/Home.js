@@ -6,6 +6,7 @@ import ethermintLogo from "../img/ethermintLogo.png";
 import { ButtonPrimaryOutline } from "./generics/Buttons/ButtonPrimaryOutline";
 import { useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
+import Swal from "sweetalert2";
 
 const StyledContainer = styled.div`
      {
@@ -34,9 +35,23 @@ export const Home = () => {
             });
 
             const responseData = await response.json();
-            console.log(responseData);
+            if (responseData.transactionHash) {
+                Swal.fire("Transaction Sent!", `Transaction sent with hash: ${responseData.transactionHash}`, "success");
+            } else {
+                Swal.fire({
+                    title: "Error!",
+                    text: JSON.stringify(responseData),
+                    icon: "error",
+                    confirmButtonText: "OK",
+                });
+            }
         } catch (error) {
-            console.error(error);
+            Swal.fire({
+                title: "Error!",
+                text: error,
+                icon: "error",
+                confirmButtonText: "OK",
+            });
         }
     };
     return isAuthenticated ? (
