@@ -13,6 +13,17 @@ const StyledNav = styled(Nav)`
         button {
             margin-left: 1em;
         }
+
+        @media (max-width: 500px) {
+            button {
+                font-size: 12px;
+            }
+            @media (max-width: 350px) {
+                button {
+                    font-size: 10px;
+                }
+            }
+        }
     }
 `;
 
@@ -32,6 +43,17 @@ const StyledBrandText = styled(Navbar.Brand)`
         span {
             padding-left: 0.2em;
             color: white;
+        }
+
+        @media (max-width: 500px) {
+            span {
+                font-size: 14px;
+            }
+            @media (max-width: 350px) {
+                span {
+                    font-size: 10px;
+                }
+            }
         }
     }
 `;
