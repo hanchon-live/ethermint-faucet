@@ -38,9 +38,20 @@ export const Home = () => {
             if (responseData.transactionHash) {
                 Swal.fire("Transaction Sent!", `Transaction sent with hash: ${responseData.transactionHash}`, "success");
             } else {
+                if (responseData.error) {
+                    if (responseData.error.includes("invalid address")) {
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Invalid address",
+                            icon: "error",
+                            confirmButtonText: "OK",
+                        });
+                        return;
+                    }
+                }
                 Swal.fire({
                     title: "Error!",
-                    text: JSON.stringify(responseData),
+                    text: "Transaction error!",
                     icon: "error",
                     confirmButtonText: "OK",
                 });
@@ -48,7 +59,7 @@ export const Home = () => {
         } catch (error) {
             Swal.fire({
                 title: "Error!",
-                text: error,
+                text: "Transaction error!",
                 icon: "error",
                 confirmButtonText: "OK",
             });
