@@ -5,8 +5,25 @@ import Image from "react-bootstrap/Image";
 import ethermintLogo from "../img/ethermintLogo.png";
 import { ButtonPrimaryOutline } from "./generics/Buttons/ButtonPrimaryOutline";
 import { useSelector } from "react-redux";
+import { useEffect } from "react"
 import { useAuth0 } from "@auth0/auth0-react";
 import Swal from "sweetalert2";
+
+import { setFaucet } from "../redux/features/faucet";
+import { useDispatch } from "react-redux";
+
+const API_ENDPOINT = process.env.REACT_APP_FAUCET_API_URL || "https://faucet.hanchon.live/api/"
+
+async function setFaucetInfo(dispatch) {
+    const response = await fetch(API_ENDPOINT, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const responseData = await response.json();
+    dispatch(setFaucet(responseData));
+}
 
 const StyledContainer = styled.div`
      {
@@ -20,12 +37,17 @@ const StyledContainer = styled.div`
 `;
 
 export const Home = () => {
+    const dispatch = useDispatch();
+    useEffect(async () => {
+        await setFaucetInfo(dispatch);
+    });
+
     const address = useSelector((state) => state.address.value);
     const { isAuthenticated, getAccessTokenSilently } = useAuth0();
     const callRequestFounds = async () => {
         try {
             const token = await getAccessTokenSilently();
-            const response = await fetch("https://faucet.hanchon.live/api/faucet", {
+            const response = await fetch(API_ENDPOINT, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
